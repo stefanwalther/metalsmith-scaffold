@@ -4,11 +4,12 @@ var chai = require("chai");
 var expect = chai.expect;
 var MetalsmithScaffold = require("./../index");
 
-describe( "", function () {
+describe( "whatever test", function () {
 
 	it( "runs", function ( done ) {
 		var mtsf =  new MetalsmithScaffold( require("./config.js"));
-		mtsf.run( function () {
+		mtsf.run( function ( err ) {
+			expect (err).to.not.exist;
 			done();
 		})
 	} );

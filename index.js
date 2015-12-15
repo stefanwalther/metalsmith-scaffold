@@ -52,7 +52,7 @@ MetalsmithScaffold.prototype.run = function ( cb ) {
 				console.log( "---" );
 				console.log( colors.green( Object.keys( files ).length ) + " files created in total." );
 			}
-			cb();
+			cb( err );
 		} );
 };
 
