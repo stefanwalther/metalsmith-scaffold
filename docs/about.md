@@ -1,3 +1,6 @@
+The goal of this project is to create a nice scaffold using Metalsmith which can then be used in multiple projects with very little configuration.
+
+### Status so far
 What's planned (not everything covered right now):
 
 - **Different:**
