@@ -11,53 +11,51 @@ var tags = require( "metalsmith-tags" );
 var moment = require( "moment" );
 var debugOutput = require( "./plugins/debug-output" );
 var drafts = require( "metalsmith-drafts" );
-var colors = require("colors");
+var colors = require( "colors" );
 
-Handlebars.registerHelper( "custom", require( "./helpers/custom" ) );
-Handlebars.registerPartial( "header", fs.readFileSync( __dirname + '/layouts/partials/header.hbt' ).toString() );
-Handlebars.registerHelper( 'dateFormat', function ( context, format ) {
-	var f = format || 'DD/MM/YYYY';
-	return moment( new Date( context ) ).format( f );
-} );
+var MetalsmithScaffold = function ( config ) {
 
-Metalsmith( __dirname )
-	.clean( false )
-	.use( drafts( {default: true} ) )
-	.use( debugOutput() )
-	.use( tags( {
-		handle: "tags",
-		layout: "./partials/tag.hbt",
-		path: "topics/:tag.html",
-		sortBy: "date",
-		reverse: true,
-		skipMetadata: false,
-		slug: {mode: 'rfc3986'}
-	} ) )
-	.use( inplace( {
-		engine: "handlebars",
-		pattern: "**/*.md"
-	} ) )
-	.use( markdown( {
-		smartypants: true,
-		smartLists: true,
-		gfm: true,
-		tables: true
-	} ) )
-	.use( layouts( {
-		engine: "handlebars",
-		default: "default.hbt"
-	} ) )
-	.source( "./.content" )
-	.destination( "./.build" )
-	.build( function ( err, files ) {
-		if ( err ) {
-			console.log( colors.red("On or more errors occurred: ") + err );
-		} else {
-			console.log( "---" );
-			Object.keys( files ).forEach( function ( file ) {
-				console.log( colors.green( "File created: " ) + file );
-			} );
-			console.log("---");
-			console.log(colors.green( Object.keys( files).length) + " files created in total.");
-		}
+	this.config = config;
+
+};
+MetalsmithScaffold.prototype.run = function ( cb ) {
+
+	if ( typeof(this.config) === "undefined" ) {
+		throw new Error( "Configuration is not defined" );
+	}
+
+	Handlebars.registerHelper( "custom", require( "./helpers/custom" ) );
+	Handlebars.registerPartial( "header", fs.readFileSync( __dirname + '/layouts/partials/header.hbt' ).toString() );
+	Handlebars.registerHelper( 'dateFormat', function ( context, format ) {
+		var f = format || 'DD/MM/YYYY';
+		return moment( new Date( context ) ).format( f );
 	} );
+
+	Metalsmith( __dirname )
+		.clean( false )
+		.use( drafts( this.config.drafts ) )
+		.use( debugOutput() )
+		.use( tags( this.config.tags ) )
+		.use( inplace( this.config.inplace ) )
+		.use( markdown( this.config.markdown ) )
+		.use( layouts( this.config.layouts ) )
+		.source( this.config.source )
+		.destination( this.config.destination )
+		.build( function ( err, files ) {
+			if ( err ) {
+				console.log( colors.red( "On or more errors occurred: " ) + err );
+			} else {
+				console.log( "---" );
+				Object.keys( files ).forEach( function ( file ) {
+					console.log( colors.green( "File created: " ) + file );
+				} );
+				console.log( "---" );
+				console.log( colors.green( Object.keys( files ).length ) + " files created in total." );
+			}
+			cb();
+		} );
+};
+
+module.exports = MetalsmithScaffold;
+
+
