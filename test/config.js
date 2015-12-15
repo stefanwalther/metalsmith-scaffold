@@ -1,6 +1,6 @@
 module.exports = {
 	source: "./test/fixtures/src",
-	destination: "./.build",
+	destination: "./test/fixtures/.build",
 	markdown: {
 		smartypants: true,
 		smartLists: true,
