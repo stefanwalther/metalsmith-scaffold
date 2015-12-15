@@ -10,10 +10,11 @@ describe( "whatever test", function () {
 	var config = require( "./config.js" )
 
 	after( function ( done ) {
-		del( config.destination )
-			.then( function ( /*files*/ ) {
-				done();
-			} )
+		//del( config.destination )
+		//	.then( function ( /*files*/ ) {
+		//		done();
+		//	} )
+		done();
 	} );
 
 	it( "runs", function ( done ) {
@@ -23,5 +24,4 @@ describe( "whatever test", function () {
 			done();
 		} )
 	} );
-
 } );

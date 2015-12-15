@@ -1,17 +1,22 @@
 "use strict";
 
 var Metalsmith = require( "metalsmith" );
+var Handlebars = require( 'handlebars' );
 var markdown = require( "metalsmith-markdown" );
 var layouts = require( "metalsmith-layouts" );
 var debug = require( "metalsmith-debug" );
-var Handlebars = require( 'handlebars' );
-var fs = require( "fs" );
 var inplace = require( "metalsmith-in-place" );
 var tags = require( "metalsmith-tags" );
-var moment = require( "moment" );
 var debugOutput = require( "./plugins/debug-output" );
 var drafts = require( "metalsmith-drafts" );
+var permaLinks = require( "metalsmith-permalinks" );
+var rename = require( "metalsmith-rename" );
+
+var moment = require( "moment" );
+
 var colors = require( "colors" );
+
+var fs = require( "fs" );
 
 var MetalsmithScaffold = function ( config ) {
 
@@ -34,11 +39,16 @@ MetalsmithScaffold.prototype.run = function ( cb ) {
 	Metalsmith( __dirname )
 		.clean( false )
 		.use( drafts( this.config.drafts ) )
+		// Pattern to allow contents from GitHub with "just" a directory and a readme (e.g. https://github.com/stefanwalther/articles)
+		.use( rename ( [
+			[/readme\.md/gi, "index.html"]
+		]) )
 		.use( debugOutput() )
 		.use( tags( this.config.tags ) )
 		.use( inplace( this.config.inplace ) )
 		.use( markdown( this.config.markdown ) )
 		.use( layouts( this.config.layouts ) )
+		.use( permaLinks() )
 		.source( this.config.source )
 		.destination( this.config.destination )
 		.build( function ( err, files ) {
