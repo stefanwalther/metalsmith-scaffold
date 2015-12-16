@@ -26,5 +26,12 @@ module.exports = {
 	},
 	drafts: {
 		default: true
+	},
+	readme: [
+		[/readme\.md/gi, "index.html"]
+	],
+	assets: {
+		source: "./test/fixtures/src/assets",
+		destination: "./test/fixtures/.build/assets"
 	}
 };

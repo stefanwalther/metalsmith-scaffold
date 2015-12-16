@@ -22,6 +22,7 @@
     "metalsmith-permalinks": "^0.4.0",
     "metalsmith-register-helpers": "^0.1.2",
     "metalsmith-rename": "^1.0.0",
+    "metalsmith-static": "0.0.5",
     "metalsmith-tags": "^1.1.0",
     "metalsmith-templates": "^0.7.0",
     "moment": "^2.10.6"

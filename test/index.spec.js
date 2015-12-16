@@ -9,6 +9,10 @@ describe( "whatever test", function () {
 
 	var config = require( "./config.js" )
 
+	beforeEach( function ( done ) {
+		cleanBuild( done );
+	});
+
 	after( function ( done ) {
 		//del( config.destination )
 		//	.then( function ( /*files*/ ) {
@@ -24,4 +28,11 @@ describe( "whatever test", function () {
 			done();
 		} )
 	} );
+
+	function cleanBuild( done ) {
+		del( config.destination )
+			.then( function ( /*files*/ ) {
+				done();
+			} )
+	}
 } );
