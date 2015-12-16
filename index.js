@@ -48,7 +48,7 @@ MetalsmithScaffold.prototype.run = function ( cb ) {
 		.use( inplace( this.config.inplace ) )
 		.use( markdown( this.config.markdown ) )
 		.use( layouts( this.config.layouts ) )
-		//.use( permaLinks() )
+		.use( permaLinks( this.config.permalinks ) )
 		.source( this.config.source )
 		.destination( this.config.destination )
 		.build( function ( err, files ) {

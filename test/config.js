@@ -33,5 +33,8 @@ module.exports = {
 	assets: {
 		src: "./test/fixtures/src/assets",
 		dest: "./assets"
+	},
+	permalinks: {
+
 	}
 };
