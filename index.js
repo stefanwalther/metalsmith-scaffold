@@ -40,10 +40,7 @@ MetalsmithScaffold.prototype.run = function ( cb ) {
 	Metalsmith( __dirname )
 		.clean( false )
 		.use( drafts( this.config.drafts ) )
-		.use( assets ( {
-			src: "./test/fixtures/src/assets",
-			dest: "./assets"
-		}))
+		.use( assets ( this.config.assets ))
 		// Pattern to allow contents from GitHub with "just" a directory and a readme (e.g. https://github.com/stefanwalther/articles)
 		.use( rename( this.config.readme ) )
 		.use( debugOutput() )

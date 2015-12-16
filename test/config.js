@@ -31,7 +31,7 @@ module.exports = {
 		[/readme\.md/gi, "index.html"]
 	],
 	assets: {
-		source: "./test/fixtures/src/assets",
-		destination: "./test/fixtures/.build/assets"
+		src: "./test/fixtures/src/assets",
+		dest: "./assets"
 	}
 };
