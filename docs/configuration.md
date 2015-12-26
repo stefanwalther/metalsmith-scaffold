@@ -6,7 +6,7 @@ The following options needs to be defined to get the project up and running:
 
 #### Source
 
-```json
+```js
 source: "path/to/source"
 ```
 
@@ -14,7 +14,7 @@ Reference: [metalsmith#sourcepath](https://github.com/segmentio/metalsmith#sourc
 
 #### Destination
 
-```json
+```js
 destination: "path/to/destination"
 ```
 
@@ -22,7 +22,7 @@ Reference: [metalsmith#destinationpath](https://github.com/segmentio/metalsmith#
 
 #### Markdown
 
-```json
+```js
 markdown: {
 	smartypants: true,
 	smartLists: true,
@@ -35,7 +35,7 @@ Reference: [metalsmith-markdown](https://github.com/segmentio/metalsmith-markdow
 
 #### Layouts
 
-```json
+```js
 layouts: {
 	directory: path.join( __dirname, "./fixtures/setup/layouts" ),
 	partials: path.join( __dirname, "./fixtures/setup/partials" ),
@@ -49,7 +49,7 @@ Reference: [metalsmith-layouts](https://github.com/superwolff/metalsmith-layouts
 
 #### Inplace
 
-```json
+```js
 inPlace: {
 	engine: "handlebars",
 	pattern: "**/*.md"
@@ -62,7 +62,7 @@ Reference: [metalsmith-inplace](https://github.com/superwolff/metalsmith-in-plac
 
 > Register Handlebar helpers automatically.
 
-```json
+```js
 registerHelpers: {
 	"directory": path.join( __dirname, "./fixtures/setup/helpers" )
 }
@@ -74,7 +74,7 @@ Reference: [metalsmith-register-helpers](https://github.com/losttype/metalsmith-
 
 > Enable drafts
 
-```json
+```js
 drafts: {
 	default: true
 },
@@ -87,7 +87,7 @@ Reference: [metalsmith-drafts](https://github.com/segmentio/metalsmith-drafts)
 
 > Copy assets to the output directory.
 
-```json
+```js
 assets: {
 	source: path.join(__dirname, "./fixtures/content/assets"),
 	destination: "./assets"
