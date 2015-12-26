@@ -1,4 +1,5 @@
+var Handlebars = require("Handlebars");
 
 module.exports = function ( content ) {
-	return "<strong class='custom'>" + content + "</strong>";
+	return Handlebars.SafeString("<strong class='custom'>" + content + "</strong>");
 };

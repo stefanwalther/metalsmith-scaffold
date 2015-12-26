@@ -3,14 +3,19 @@ The goal of this project is to create a nice scaffold using Metalsmith which can
 ### Status so far
 What's planned (not everything covered right now):
 
+- [x] Markdown conversion
+- [x] Less conversion
+- [x] Cleaning the build directory
+- [x] Error handling to ensure that everything went well
+- [ ] Error notification
 - **Different:**
-	- layouts
-	- content types
-	- collections
+	- [x] layouts
+	- [x] content types
+	- [] collections
 - **Dynamic loading** of:
-	- handlebar templates
-	- partials
-	- Metalsmith plugins
+	- [x] handlebar templates
+	- [x] partials
+	- [] Metalsmith plugins
 - Site **features**:
-	- Tags
+	- [x] Tags
 - Full test coverage to ensure that everything continues to work

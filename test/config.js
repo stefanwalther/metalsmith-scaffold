@@ -15,7 +15,7 @@ module.exports = {
 		default: "default.hbt",
 		"pattern": "*.hbt"
 	},
-	inplace: {
+	inPlace: {
 		engine: "handlebars",
 		pattern: "**/*.md"
 	},

@@ -37,9 +37,61 @@ Reference: [metalsmith-markdown](https://github.com/segmentio/metalsmith-markdow
 
 ```json
 layouts: {
+	directory: path.join( __dirname, "./fixtures/setup/layouts" ),
+	partials: path.join( __dirname, "./fixtures/setup/partials" ),
 	engine: "handlebars",
-	default: "default.hbt"
+	default: "default.hbt",
+	pattern: "*.hbt"
 }
 ```
 
 Reference: [metalsmith-layouts](https://github.com/superwolff/metalsmith-layouts)
+
+#### Inplace
+
+```json
+inPlace: {
+	engine: "handlebars",
+	pattern: "**/*.md"
+}
+```
+
+Reference: [metalsmith-inplace](https://github.com/superwolff/metalsmith-in-place)
+
+#### Register helpers
+
+> Register Handlebar helpers automatically.
+
+```json
+registerHelpers: {
+	"directory": path.join( __dirname, "./fixtures/setup/helpers" )
+}
+```
+
+Reference: [metalsmith-register-helpers](https://github.com/losttype/metalsmith-register-helpers)
+
+#### Drafts
+
+> Enable drafts
+
+```json
+drafts: {
+	default: true
+},
+```
+
+Reference: [metalsmith-drafts](https://github.com/segmentio/metalsmith-drafts)
+(actually in the project I have used a modification of metalsmith-drafts which considers all documentes as draft by default: [stefanwalther/metalsmith-drafts](https://github.com/stefanwalther/metalsmith-drafts))
+
+#### Assets
+
+> Copy assets to the output directory.
+
+```json
+assets: {
+	source: path.join(__dirname, "./fixtures/content/assets"),
+	destination: "./assets"
+}
+```
+
+Reference: [metalsmith-assets](https://github.com/treygriffith/metalsmith-assets)
