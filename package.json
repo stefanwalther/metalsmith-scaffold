@@ -2,8 +2,9 @@
   "name": "metalsmith-scaffold",
   "version": "0.1.0",
   "description": "A quite comprehensive setup based on Metalsmith to create a static website.",
-  "private": true,
-  "scripts": {},
+  "scripts": {
+    "test": "mocha test --recursive"
+  },
   "author": "Stefan Walther",
   "license": "MIT",
   "dependencies": {
