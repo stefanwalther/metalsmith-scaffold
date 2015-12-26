@@ -43,10 +43,11 @@ module.exports = {
 	},
 	permalinks: {},
 	less: {
-		pattern: "main.less",
+		pattern: "**/*.less",
 		render: {
 			paths: [
-				path.join( __dirname, "./fixtures/setup/less")
+				// Weird configuration, .build is not available, yet.
+				"test/fixtures/content/assets/less"
 			]
 		}
 	}
