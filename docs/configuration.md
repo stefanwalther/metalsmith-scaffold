@@ -10,7 +10,7 @@ The following options needs to be defined to get the project up and running:
 source: "path/to/source"
 ```
 
-Reference: [https://github.com/segmentio/metalsmith#sourcepath](https://github.com/segmentio/metalsmith#sourcepath)
+Reference: [metalsmith#sourcepath](https://github.com/segmentio/metalsmith#sourcepath)
 
 #### Destination
 
@@ -18,4 +18,28 @@ Reference: [https://github.com/segmentio/metalsmith#sourcepath](https://github.c
 destination: "path/to/destination"
 ```
 
-Reference: [https://github.com/segmentio/metalsmith#destinationpath](https://github.com/segmentio/metalsmith#destinationpath)
+Reference: [metalsmith#destinationpath](https://github.com/segmentio/metalsmith#destinationpath)
+
+#### Markdown
+
+```json
+markdown: {
+	smartypants: true,
+	smartLists: true,
+	gfm: true,
+	tables: true
+}
+```
+
+Reference: [metalsmith-markdown](https://github.com/segmentio/metalsmith-markdown) resp. [marked](https://github.com/chjj/marked)
+
+#### Layouts
+
+```json
+layouts: {
+	engine: "handlebars",
+	default: "default.hbt"
+}
+```
+
+Reference: [metalsmith-layouts](https://github.com/superwolff/metalsmith-layouts)

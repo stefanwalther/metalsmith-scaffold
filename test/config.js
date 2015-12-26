@@ -1,6 +1,7 @@
+var path = require( "path" );
 module.exports = {
-	source: "./test/fixtures/src",
-	destination: "./test/fixtures/.build",
+	source: path.join( __dirname, "./fixtures/content" ),
+	destination: path.join( __dirname, "./fixtures/.build" ),
 	markdown: {
 		smartypants: true,
 		smartLists: true,
@@ -8,16 +9,22 @@ module.exports = {
 		tables: true
 	},
 	layouts: {
+		directory: path.join( __dirname, "./fixtures/setup/layouts" ),
+		partials: path.join( __dirname, "./fixtures/setup/partials" ),
 		engine: "handlebars",
-		default: "default.hbt"
+		default: "default.hbt",
+		"pattern": "*.hbt"
 	},
 	inplace: {
 		engine: "handlebars",
 		pattern: "**/*.md"
 	},
+	registerHelpers: {
+		"directory": path.join( __dirname, "./fixtures/setup/helpers" )
+	},
 	tags: {
 		handle: "tags",
-		layout: "./partials/tag.hbt",
+		layout: path.join( __dirname, "./fixtures/setup/partials/tag.html" ),
 		path: "topics/:tag.html",
 		sortBy: "date",
 		reverse: true,
@@ -31,10 +38,8 @@ module.exports = {
 		[/readme\.md/gi, "index.html"]
 	],
 	assets: {
-		src: "./test/fixtures/src/assets",
+		src: path.join( __dirname, "./fixtures/content/assets" ),
 		dest: "./assets"
 	},
-	permalinks: {
-
-	}
+	permalinks: {}
 };

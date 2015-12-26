@@ -9,6 +9,8 @@
   "dependencies": {
     "colors": "^1.1.2",
     "del": "^2.2.0",
+    "extend-shallow": "^2.0.1",
+    "glob": "^6.0.2",
     "handlebars": "^4.0.5",
     "handlebars-helpers": "^0.5.8",
     "helper-hybrid": "^0.2.2",

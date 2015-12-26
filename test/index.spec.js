@@ -7,7 +7,7 @@ var del = require( "del" );
 
 describe( "whatever test", function () {
 
-	var config = require( "./config.js" )
+	var config = require( "./config.js" );
 
 	beforeEach( function ( done ) {
 		cleanBuild( done );
