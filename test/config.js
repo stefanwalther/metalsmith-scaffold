@@ -38,8 +38,16 @@ module.exports = {
 		[/readme\.md/gi, "index.html"]
 	],
 	assets: {
-		src: path.join( __dirname, "./fixtures/content/assets" ),
-		dest: "./assets"
+		source: path.join(__dirname, "./fixtures/content/assets"),
+		destination: "./assets"
 	},
-	permalinks: {}
+	permalinks: {},
+	less: {
+		pattern: "main.less",
+		render: {
+			paths: [
+				path.join( __dirname, "./fixtures/setup/less")
+			]
+		}
+	}
 };
