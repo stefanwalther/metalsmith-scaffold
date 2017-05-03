@@ -1,5 +1,7 @@
 # metalsmith-scaffold
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/stefanwalther/metalsmith-scaffold.svg)](https://greenkeeper.io/)
+
 > A quite comprehensive setup based on Metalsmith to create a static website.
 
 **Work in progress: stay tuned**
